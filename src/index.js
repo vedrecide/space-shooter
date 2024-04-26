@@ -224,6 +224,37 @@ scene('battle', () => {
     anchor('center'),
   ]);
 
+  onKeyDown('w', () => {
+    player.move(0, -PLAYER_SPEED);
+  });
+
+  onKeyDown('s', () => {
+    player.move(0, PLAYER_SPEED);
+    if (player.pos.y > height()) {
+      player.pos.y = height();
+    }
+  });
+
+  onKeyDown('a', () => {
+    player.move(-PLAYER_SPEED, 0);
+    player.play('run');
+    player.flipX = true;
+    if (player.pos.x < 0) {
+      player.pos.x = width();
+    }
+  });
+
+  onKeyDown('d', () => {
+    player.move(PLAYER_SPEED, 0);
+    player.play('run');
+    if (player.flipX) {
+      player.flipX = false;
+    }
+    if (player.pos.x > width()) {
+      player.pos.x = 0;
+    }
+  });
+
   onKeyDown('left', () => {
     player.move(-PLAYER_SPEED, 0);
     player.play('run');
