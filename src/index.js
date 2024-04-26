@@ -226,6 +226,9 @@ scene('battle', () => {
 
   onKeyDown('w', () => {
     player.move(0, -PLAYER_SPEED);
+    if (player.pos.y <= 0) {
+      player.pos.y = height() - height();
+    }
   });
 
   onKeyDown('s', () => {
