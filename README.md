@@ -4,4 +4,4 @@
 <img alt="Main Menu" src="./assets/showcase/main_menu.png">
 
 ## Links
-[The game itself](https://vedrecide.github.io/space-shooter)
+[Game](https://vedrecide.github.io/space-shooter)

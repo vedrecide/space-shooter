@@ -48,6 +48,8 @@ loadSound('shoot', './assets/audio/effects/better_shoot.mp3');
 loadSound('explode', './assets/audio/effects/better_explode.mp3');
 
 loadSound('Euphoria', './assets/audio/Euphoria_compressed.mp3');
+loadSound('Imperius', './assets/audio/Imperius_compressed.mp3');
+loadSound('Mortals', './assets/audio/Mortals_compressed.mp3');
 
 scene('menu', () => {
   onUpdate(() => setCursor('default'));
@@ -125,7 +127,9 @@ scene('battle', () => {
 
   let insaneMode = false;
 
-  const music = play('Euphoria');
+  const playlist = ['Euphoria', 'Imperius', 'Mortals'];
+  let musicName = playlist[Math.floor(Math.random() * playlist.length)];
+  let music = play(musicName, { loop: true });
 
   volume(0.5);
 
@@ -485,14 +489,40 @@ scene('battle', () => {
     pos(24, height() - 24),
   ]);
 
-  add([
-    text('Now playing: Euphoria - VOJ, Narvent', {
-      width: width() / 2,
-      size: 16,
-    }),
-    anchor('botleft'),
-    pos(24, height() - 65),
-  ]);
+  let text_ = add([]);
+
+  if (musicName === 'Imperius') {
+    text_ = add([
+      text('Now playing: Imperius - prod. Caleb Bryant', {
+        width: width() / 2,
+        size: 16,
+      }),
+      anchor('botleft'),
+      pos(24, height() - 65),
+    ]);
+  }
+
+  if (musicName === 'Euphoria') {
+    text_ = add([
+      text('Now playing: Euphoria - VOJ, Narvent', {
+        width: width() / 2,
+        size: 16,
+      }),
+      anchor('botleft'),
+      pos(24, height() - 65),
+    ]);
+  }
+
+  if (musicName === 'Mortals') {
+    text_ = add([
+      text('Now playing: Mortals - Laura Brehm, NCS', {
+        width: width() / 2,
+        size: 16,
+      }),
+      anchor('botleft'),
+      pos(24, height() - 65),
+    ]);
+  }
 
   spawnTrash();
 });
