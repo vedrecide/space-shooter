@@ -120,7 +120,7 @@ scene('battle', () => {
   const TRASH_SPEED = 120;
   const BOSS_SPEED = 48;
   const PLAYER_SPEED = 480;
-  const BOSS_HEALTH = 7500;
+  const BOSS_HEALTH = 1500;
   const OBJ_HEALTH = 4;
 
   const bossName = 'asteroidBoss';
